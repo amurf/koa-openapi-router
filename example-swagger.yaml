@@ -13,6 +13,9 @@ paths:
       operationId: listPets
       tags:
         - pets
+      x-koa-router:
+        module: pets
+        func: getAll
       parameters:
         - name: limit
           in: query
@@ -44,6 +47,9 @@ paths:
       operationId: createPets
       tags:
         - pets
+      x-koa-router:
+        module: pets
+        func: create
       parameters:
         - name: name
           in: body
@@ -66,6 +72,9 @@ paths:
       operationId: showPetById
       tags:
         - pets
+      x-koa-router:
+        module: pets
+        func: find
       parameters:
         - name: petId
           in: path

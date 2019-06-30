@@ -37,6 +37,13 @@ function setupRoute(route) {
         string: (val) => typeof val === 'string',
     };
 
+    let koaRouter = route['x-koa-router'];
+    let handler = require('./' + koaRouter.module);
+
+    if (!handler[koaRouter.func]) {
+        console.log(`${ koaRouter.func } not found`);
+    }
+
     return (ctx, next) => {
 
         let errors = [];
@@ -51,8 +58,7 @@ function setupRoute(route) {
             ctx.throw(400, errors.toString(), routeChecks.body);
         }
 
-        console.log(ctx.params, ctx.query.abc);
-        ctx.body = route.summary;
+        handler[koaRouter.func](ctx, ctx.params, route);
     };
 }
 
