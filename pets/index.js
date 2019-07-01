@@ -1,6 +1,6 @@
 
 function getAll(ctx, params, meta) {
-    ctx.body = "Reading from swagger: " + "\n" + meta.summary ;
+  ctx.body = "Reading from swagger: " + "\n" + meta.summary ;
 }
 
 function create(ctx, params, meta) {
@@ -12,7 +12,7 @@ function find(ctx, params, meta) {
 }
 
 module.exports = {
-    getAll,
-    create,
-    find,
+  getAll,
+  create,
+  find,
 };
