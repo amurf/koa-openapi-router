@@ -9,10 +9,11 @@ const file    = fs.readFileSync('example-swagger.yaml', 'utf8')
 const swagger = yaml.parse(file)
 const paths   = swagger.paths;
 
-for (let route of Object.keys(paths)) {
-    let methods = Object.keys(paths[route]);
+for (let path of Object.keys(paths)) {
+    let methods = Object.keys(paths[path]);
     for (let method of methods) {
-        router[method](route.replace('{', ':').replace('}', ''), setupRoute(paths[route][method]));
+        let convertedPath = path.replace('{', ':').replace('}', ''); // move to func, make smarter.
+        router[method](convertedPath, setupRoute({...paths[path][method], path: convertedPath }));
     }
 }
 
@@ -38,10 +39,10 @@ function setupRoute(route) {
     };
 
     let koaRouter = route['x-koa-router'];
-    let handler = require('./' + koaRouter.module);
+    let handler = require(`./${ koaRouter.module }`);
 
     if (!handler[koaRouter.func]) {
-        console.log(`${ koaRouter.func } not found`);
+        console.log(`* ${ route.path }: ${ koaRouter.func } function not found in module ${ koaRouter.module }`);
     }
 
     return (ctx, next) => {
@@ -66,10 +67,8 @@ function setupRoute(route) {
 const Koa = require('koa');
 const app = new Koa();
 
-// Write a swagger middleware parser ala steves d2
-
 app
   .use(router.routes())
   .use(router.allowedMethods());
 
-app.listen(3000);
+app.listen(3434);

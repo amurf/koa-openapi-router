@@ -1,16 +1,18 @@
 
 function getAll(ctx, params, meta) {
-    ctx.body = "lol: " + params.toString();
+    ctx.body = "Reading from swagger: " + "\n" + meta.summary ;
 }
 
-function create(params, meta) {
+function create(ctx, params, meta) {
 
 }
 
+function find(ctx, params, meta) {
+  ctx.body = "Found: " + params.petId;
+}
 
 module.exports = {
-
-    getAll: getAll,
-    create: create,
-
+    getAll,
+    create,
+    find,
 };
