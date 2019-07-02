@@ -1,6 +1,6 @@
 {
   "name": "koa-openapi-router",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Generates a koa-router from a OpenAPI spec",
   "main": "index.js",
   "directories": {
