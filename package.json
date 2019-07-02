@@ -32,8 +32,6 @@
   "dependencies": {
     "@koa/router": "^8.0.0",
     "jsonschema": "^1.2.4",
-    "koa": "^2.7.0",
-    "koa-bodyparser": "^4.2.1",
     "yaml": "^1.6.0"
   }
 }
