@@ -1,0 +1,39 @@
+{
+  "name": "koa-openapi-router",
+  "version": "0.0.1",
+  "description": "Generates a koa-router from a OpenAPI spec",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "KOA_OPENAPI_ROUTER_TESTS=1 mocha tests/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amurf/koa-openapi-router.git"
+  },
+  "keywords": [
+    "openapi",
+    "openapi",
+    "koa",
+    "router"
+  ],
+  "author": "Ashley Murphy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/amurf/koa-openapi-router/issues"
+  },
+  "homepage": "https://github.com/amurf/koa-openapi-router#readme",
+  "devDependencies": {
+    "assert": "^2.0.0",
+    "mocha": "^6.1.4"
+  },
+  "dependencies": {
+    "@koa/router": "^8.0.0",
+    "jsonschema": "^1.2.4",
+    "koa": "^2.7.0",
+    "koa-bodyparser": "^4.2.1",
+    "yaml": "^1.6.0"
+  }
+}
