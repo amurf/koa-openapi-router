@@ -107,6 +107,7 @@ function validateParams(params, validations) {
     let param = validations[paramName];
     let value = params[paramName];
 
+    // TODO: Normalise error return format
     if (!value && param.required) {
       errors.push(`${paramName} is required`);
     }
