@@ -74,7 +74,8 @@ function getRouteHandler(route) {
   }
 
   let pathRouterOpts = route['x-koa-openapi-router'];
-  let handler        = require("./" + pathRouterOpts.module);
+  let modulePath     = path.join(process.cwd(), pathRouterOpts.module);
+  let handler        = require(modulePath);
 
   if (!handler[pathRouterOpts.func]) {
     console.log(`* ${ route.path }: ${ pathRouterOpts.func } function not found in module ${ pathRouterOpts.module }`);
