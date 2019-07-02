@@ -1,0 +1,14 @@
+{
+  "name": "koa-openapi-router-example",
+  "version": "0.0.1",
+  "description": "An example of how to use koa-openapi-router",
+  "main": "index.js",
+  "scripts": {
+    "server": "node index.js"
+  },
+  "author": "Ashley Murphy",
+  "dependencies": {
+    "koa": "^2.7.0",
+    "koa-bodyparser": "^4.2.1"
+  }
+}
